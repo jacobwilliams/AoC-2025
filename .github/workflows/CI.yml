@@ -31,7 +31,7 @@ jobs:
       uses: ts-graphviz/setup-graphviz@v2.0.2
 
     - name: Setup Fortran Package Manager
-      uses: uses: fortran-lang/setup-fpm@v8
+      uses: fortran-lang/setup-fpm@v8
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
