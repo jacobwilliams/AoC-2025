@@ -82,6 +82,7 @@ integer,parameter,public :: ip = int64   !! default int kind
     public :: hex2int
     public :: inverse
     public :: cross
+    public :: divisors
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -1504,6 +1505,20 @@ function read_file_to_string(filename) result(str)
             print*, array(i,:)
         end do
     end subroutine print_char_array
+!************************************************************************************************
+
+!************************************************************************************************
+    pure function divisors(num) result(list)
+        !! get all the divisors of the number (not counting 1)
+        !! see also: https://rosettacode.org/wiki/Proper_divisors#Fortran
+        integer(ip),intent(in) :: num
+        integer(ip),dimension(:),allocatable :: list
+        integer(ip) :: i !! counter
+        allocate(list(0))
+        do i = 2_ip, num - 1_ip
+            if (mod(num,i) == 0_ip) list = [list, i]
+        end do
+    end function divisors
 !************************************************************************************************
 
 !************************************************************************************************

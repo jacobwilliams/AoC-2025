@@ -108,16 +108,4 @@ contains
 
     end function part_b_invalid
 
-    pure function divisors(num) result(list)
-        !! get all the divisors of the number (not counting 1)
-        !! see also: https://rosettacode.org/wiki/Proper_divisors#Fortran
-        integer(ip),intent(in) :: num
-        integer(ip),dimension(:),allocatable :: list
-        integer(ip) :: i !! counter
-        allocate(list(0))
-        do i = 2_ip, num - 1_ip
-            if (mod(num,i) == 0_ip) list = [list, i]
-        end do
-    end function divisors
-
 end program problem_2
