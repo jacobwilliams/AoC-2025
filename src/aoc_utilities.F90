@@ -1114,7 +1114,7 @@ function read_file_to_string(filename) result(str)
 !>
 !  convert the character string to an array of characters
 
-    function str_to_array(s) result(a)
+    pure function str_to_array(s) result(a)
         character(len=*),intent(in) :: s
         character(len=1),dimension(len(s)) :: a
         integer :: i
